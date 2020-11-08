@@ -8,6 +8,7 @@ public class BasePage {
 
     public BasePage() {
         Configuration.baseUrl = "http://demo.guru99.com";
+        Configuration.timeout = 10000;
     }
 
     public String getTitle() {

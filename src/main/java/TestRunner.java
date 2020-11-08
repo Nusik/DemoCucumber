@@ -4,12 +4,11 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        tags = {"@Smoke"}, // @TableTag
+      //  tags = {"@Smoke"},
         features = {"src/test/resources"},
         glue = {"StepsDefinition"},
         plugin = {"pretty", "html:target/htmlreports"}
 )
 
 public class TestRunner {
-
 }

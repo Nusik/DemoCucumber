@@ -10,7 +10,6 @@ public class HomePage extends BasePage {
     private MainMenuFragment mainMenuFragment = new MainMenuFragment();
 
     private SelenideElement loginForm = $("form[name='frmLogin']");
-    private SelenideElement newToursButton = $x("//a[contains(text(),'New Tours')]");
 
     public HomePage() {
     }
@@ -26,9 +25,4 @@ public class HomePage extends BasePage {
     public void navigate() {
         open("/");
     }
-
-    public void clickOnNewToursButton(){
-        newToursButton.click();
-    }
-
 }

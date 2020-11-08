@@ -6,6 +6,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pages.HomePage;
 import pages.NewToursPage;
+import pages.TablePage;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -14,6 +15,10 @@ public class NavigationSteps {
 
     HomePage homePage = new HomePage();
     NewToursPage newToursPage = new NewToursPage();
+    TablePage tablePage = new TablePage();
+
+    String titleHomePage = "Guru99 Bank Home Page";
+    String titleNewToursPage = "Welcome: Mercury Tours";
 
     @When("user navigate to homePage")
     public void userNavigateToHomePage() {
@@ -22,13 +27,12 @@ public class NavigationSteps {
 
     @Then("title of homePage is {string}")
     public void titleOfHomePageIs(String title) {
-        assertEquals("Guru99 Bank Home Page", homePage.getTitle());
+        assertEquals(title, homePage.getTitle());
     }
 
     @And("login form is present")
     public void loginFormIsPresent() {
         assertTrue(homePage.isLoginFormPresent());
-
     }
 
     @Given("user is on homePage")
@@ -38,12 +42,12 @@ public class NavigationSteps {
 
     @When("user click on newToursButton")
     public void userClickOnNewToursButton() {
-        homePage.clickOnNewToursButton();
+        homePage.getMainMenuFragment().clickNewToursMenu();
     }
 
     @Then("title of newToursPage is {string}")
     public void titleOfNewToursPageIs(String title) {
-        assertEquals("Welcome: Mercury Tours", newToursPage.getTitle());
+        assertEquals(title, newToursPage.getTitle());
     }
 
     @And("main fragment is present")
@@ -53,16 +57,16 @@ public class NavigationSteps {
 
     @When("user click on tableDemoLink")
     public void userClickOnTableDemoLink() {
-
+        homePage.getMainMenuFragment().clickTableDemo();
     }
 
     @Then("title of tablePage is correct")
     public void titleOfTablePageIsCorrect() {
-
+        assertEquals("Table Demo",tablePage.getTitle());
     }
 
     @And("table is present")
     public void tableIsPresent() {
-
+        assertTrue(tablePage.isTablePresent());
     }
 }
